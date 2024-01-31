@@ -7,8 +7,17 @@ class Program
 {
     static void Main()
     {
-        // ChromeDriver'ı başlat
-        IWebDriver driver = new ChromeDriver();
+        // ChromeDriver servisi oluştur
+        ChromeDriverService service = ChromeDriverService.CreateDefaultService();
+
+        // ChromeOptions'u ayarla
+        ChromeOptions options = new ChromeOptions();
+
+        // İsteğe bağlı olarak Chrome ayarlarını burada ekleyebilirsiniz
+        // options.AddArgument("--headless"); // Örneğin, başsız modu etkinleştirmek için
+
+        // ChromeDriver'ı başlat ve servis ve seçenekleri kullanarak özelleştir
+        IWebDriver driver = new ChromeDriver(service, options);
 
         try
         {
